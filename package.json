@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
+    "mysql": "^2.18.1",
+    "sequelize": "^6.15.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "seeds": "node seeds/index.js"
+  },
+  "name": "et-techblog",
+  "description": "Sample blog app",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ernestotham/ET-TechBlog.git"
+  },
+  "author": "Ernesto Tham",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/ernestotham/ET-TechBlog/issues"
+  },
+  "homepage": "https://github.com/ernestotham/ET-TechBlog#readme"
+}
