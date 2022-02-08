@@ -22,16 +22,16 @@ Comments.init(
         },
       },
       //user_id/email address
-      owner: {
-        type: DataTypes.STRING,
+      user_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
+        references:{
+          model:'users',
+          key: 'id',
+        },
       },
       created_on: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      email_Address: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DATE,
         allowNull: false,
       },
       commnet_body: {

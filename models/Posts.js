@@ -30,15 +30,11 @@ Posts.init(
         },
       },
       created_on: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      created_on: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
         allowNull: false,
       },
       updated_on: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATA,
         allowNull: true,
       },
       post_body: {

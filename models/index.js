@@ -4,13 +4,23 @@ const Posts = require('./Posts');
 const Comments = require('./Comments');
 
 Posts.belongsTo(Users, {
-  define: {
+  foreignKey: 'user_id',
+    define: {
     underscored: true
   }
 
 });
 
 Comments.belongsTo(Users, {
+    foreignKey: 'user_id',
+    define: {
+      underscored: true
+    }
+  
+  });
+
+  Comments.belongsTo(Posts, {
+    foreignKey: 'post_id',
     define: {
       underscored: true
     }
@@ -18,6 +28,8 @@ Comments.belongsTo(Users, {
   });
 
 Users.hasMany(Posts, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE',
   define: {
     underscored: true
   }
