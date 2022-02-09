@@ -17,24 +17,24 @@ Posts.init(
         type: DataTypes.INTEGER,
         allowNull: false,
         references:{
-          model:'users',
+          model:'user',
           key: 'id',
         },
       },
-      comment_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references:{
-          model:'comments',
-          key: 'id',
-        },
-      },
+      // comment_id: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: true,
+      //   references:{
+      //     model:'comments',
+      //     key: 'id',
+      //   },
+      // },
       created_on: {
         type: DataTypes.DATE,
         allowNull: false,
       },
       updated_on: {
-        type: DataTypes.DATA,
+        type: DataTypes.DATE,
         allowNull: true,
       },
       post_body: {

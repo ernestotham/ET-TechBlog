@@ -26,7 +26,7 @@ Comments.init(
         type: DataTypes.INTEGER,
         allowNull: false,
         references:{
-          model:'users',
+          model:'user',
           key: 'id',
         },
       },
@@ -34,7 +34,7 @@ Comments.init(
         type: DataTypes.DATE,
         allowNull: false,
       },
-      commnet_body: {
+      comments_body: {
         type: DataTypes.TEXT,
         allowNull: false,
       },

@@ -1,9 +1,9 @@
 // import models
-const Users = require('./Users');
+const User = require('./User');
 const Posts = require('./Posts');
 const Comments = require('./Comments');
 
-Posts.belongsTo(Users, {
+Posts.belongsTo(User, {
   foreignKey: 'user_id',
     define: {
     underscored: true
@@ -11,7 +11,7 @@ Posts.belongsTo(Users, {
 
 });
 
-Comments.belongsTo(Users, {
+Comments.belongsTo(User, {
     foreignKey: 'user_id',
     define: {
       underscored: true
@@ -27,7 +27,7 @@ Comments.belongsTo(Users, {
   
   });
 
-Users.hasMany(Posts, {
+User.hasMany(Posts, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE',
   define: {
@@ -35,17 +35,19 @@ Users.hasMany(Posts, {
   }
   });
 
-// Products belongToMany Tags (through ProductTag)
 
-Posts.belongsToMany(Comments,{ 
-    define: {
-        underscored: true
-      }
-      });
+
+// Posts.belongsToMany(Comments,{ 
+//   foreignKey: 'comments_id',
+//   define: {
+//     underscored: true
+//   }
+
+// });
 
 
 module.exports = {
-  Users,
+  User,
   Posts,
   Comments,
 };
