@@ -36,16 +36,6 @@ User.hasMany(Posts, {
   });
 
 
-
-// Posts.belongsToMany(Comments,{ 
-//   foreignKey: 'comments_id',
-//   define: {
-//     underscored: true
-//   }
-
-// });
-
-
 module.exports = {
   User,
   Posts,
