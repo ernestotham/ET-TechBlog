@@ -1,17 +1,17 @@
 <form class="login-form">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input type="email" class="form-control" id="EmailInput" aria-describedby="emailHelp">
         <div id="emailHelp" class="form-text"></div>
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <input type="password" class="form-control" id="passwordInput">
     </div>
 
 
     <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary" id="loginBtn">Login</button>
     </div>
 </form>
 
@@ -30,8 +30,8 @@
 
 <form method="get" action="/signup">
 <div class="d-grid gap-2">
-    <button class="btn btn-primary" type="submit">SignUp</button>
+    <button class="btn btn-primary" type="submit" id="submitBtn">SignUp</button>
 </div>
 </form>
 
-<script src="./js/login.js"></script>
+<script src="./scripts/login.js"></script>
