@@ -7,7 +7,7 @@
 <div class="container"></div>
 <div class="card">
     <div class="card-header" id="{{post.id}}">
-        {{post.post_title}} Posted by {{post.user.name}} on: {{post.updated_on }}
+        {{post.post_title}} Posted by {{post.user.name}} on: {{format_date post.updated_on }}
     </div>
     {{!-- <div class="card-body">
         <div class="mb-3">
