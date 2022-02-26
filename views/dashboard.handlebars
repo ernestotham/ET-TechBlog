@@ -1,10 +1,36 @@
 <!-- Loop over each object in the projects array -->
+<h1>Your Dashboard</h1>
+<br>
+<br>
+
+{{#each posts as |post| }}
+<div class="container"></div>
+<div class="card">
+    <div class="card-header" id="{{post.id}}">
+        {{post.post_title}} Posted by {{post.user.name}} on: {{post.updated_on }}
+    </div>
+    {{!-- <div class="card-body">
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"></label>
+            <textarea readonly class="form-control" id=""
+                rows="3">{{post.post_body}}</textarea>
+        </div>
+
+    </div> --}}
+</div>
+<BR></BR>
+{{/each}}
 
 
 
 <form method="get" action="/addpost">
-<div class="d-grid gap-2">
-    <button class="btn btn-primary" type="submit">+New Post</button>
-</div>
+<BR></BR>
+    <div class="d-grid gap-2">
+        <button class="btn btn-primary" type="submit">+New Post</button>
+    </div>
+    <BR></BR>
+    <BR></BR>
 </form>
 
+
+<script src="./scripts/modPost.js"></script>

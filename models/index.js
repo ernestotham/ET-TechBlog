@@ -11,6 +11,14 @@ Posts.belongsTo(User, {
 
 });
 
+Posts.hasMany(Comments, {
+  foreignKey: 'post_id',
+  onDelete: 'CASCADE',
+define: {
+  underscored: true
+}
+});
+
 Comments.belongsTo(User, {
     foreignKey: 'user_id',
     define: {
@@ -28,6 +36,14 @@ Comments.belongsTo(User, {
   });
 
 User.hasMany(Posts, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE',
+  define: {
+    underscored: true
+  }
+  });
+
+  User.hasMany(Comments, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE',
   define: {

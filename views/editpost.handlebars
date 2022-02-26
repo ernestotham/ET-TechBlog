@@ -1,26 +1,30 @@
 <div class="container"></div>
 <div class="card">
-  <div class="card-header">
+  <div class="card-header" id="{{post.id}}">
     Edit Post
   </div>
-  <div class="card-body">
+  <div class="card-body" id="{{post.id}}">
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Title</label>
-      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+      <input type="text" class="form-control" id="TitleInput" value="{{post.post_title}}" >
     </div>
     <div class="mb-3">
       <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <textarea class="form-control" id="PostTextareaInput" rows="3">{{post.post_body}}</textarea>
     </div>
       <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-primary">Update Post</button>
+        <button type="submit" class="btn btn-primary" id="UpdatePostBtn">Update Post</button>
     </div>
-
+    <br>
     <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-primary">Delete</button>
+        <button type="submit" class="btn btn-primary" id="DeletePostBtn">Delete</button>
     </div>
     
     
   </div>
     
 </div>
+
+
+
+<script src="../../scripts/updateDeletePost.js"></script>

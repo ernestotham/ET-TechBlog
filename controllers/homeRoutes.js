@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('dashboard', { 
+    res.render('techBlog', { 
       posts, 
       logged_in: req.session.logged_in 
     });
@@ -33,19 +33,27 @@ router.get('/post/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          // attributes: ['name'],
+          model: Comments,
         },
       ],
     });
 
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      // include: [{ model: Project }],
+    });
+    const user = userData.get({ plain: true });
+
     const post = postData.get({ plain: true });
 
-    res.render('post', {
-      ...post,
-      logged_in: req.session.logged_in
+    res.status(200).render('post', {
+      post, 
+      user,
+      logged_in: req.session.logged_in 
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.render('login');
   }
 });
 
@@ -55,24 +63,61 @@ router.get('/post', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      // include: [{ model: Project }],
     });
 
+    
     const user = userData.get({ plain: true });
+    const AllPosts = await Posts.findAll();
 
-    res.render('profile', {
+    res.render('dashboard', {
+      AllPosts,
       ...user,
-      logged_in: true
+      logged_in: true,
+      
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+
+router.get('/post/modify/:id', async (req, res) => {
+  try {
+    const postData = await Posts.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          // attributes: ['name'],
+          model: Comments,
+        },
+      ],
+    });
+
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      // include: [{ model: Project }],
+    });
+    const user = userData.get({ plain: true });
+
+    const post = postData.get({ plain: true });
+
+    res.render('editPost', {
+      post, 
+      user,
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.render('login');
+  }
+});
+
+
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/dashboard');
     return;
   }
 
@@ -94,7 +139,7 @@ router.get('/signup', (req, res) => {
 router.get('/addpost', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/newpost');
+    res.render('newpost');
     return;
   }
 
@@ -104,7 +149,7 @@ router.get('/addpost', (req, res) => {
 router.get('/addcomment', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/comment');
+    res.render('comment');
     return;
   }
 
@@ -115,7 +160,7 @@ router.get('/addcomment', (req, res) => {
 router.get('/editpost', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/editpost');
+    res.render('editpost');
     return;
   }
 
@@ -134,6 +179,38 @@ router.get('/publicblog', (req, res) => {
 router.get('/publicblog2', (req, res) => {
   // If the user is already logged in, redirect the request to another route
    res.render('publicblog2');
+});
+
+
+router.get('/dashboard', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const postData = await Posts.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+
+      where: {
+        user_id: req.session.user_id,
+      },
+
+
+    });
+
+    // Serialize data so the template can read it
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('dashboard', { 
+      posts, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.render('login');
+  }
 });
 
 

@@ -32,7 +32,8 @@ Comments.init(
       },
       created_on: {
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: new Date()
       },
       comments_body: {
         type: DataTypes.TEXT,
