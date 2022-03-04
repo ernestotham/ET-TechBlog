@@ -5,7 +5,7 @@
 <div class="container"></div>
 <div class="card" id="{{post.id}}">
     <div class="card-header" id="{{post.id}}">
-        Posted by {{post.user.name}} on: {{post.updated_on }}
+        Posted by {{post.user.name}} on: {{format_date post.updated_on }}
     </div>
     <div class="card-body" id="{{post.id}}">
         <div class="mb-3">
@@ -13,7 +13,7 @@
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label" id="{{post.id}}">Content</label>
-            <textarea readonly class="form-control" id="commnet_bodyInput" rows="3">{{post.post_body}}</textarea>
+            <textarea readonly class="form-control border border-success" id="commnet_bodyInput" rows="3">{{post.post_body}}</textarea>
         </div>
 
     </div>
@@ -22,17 +22,17 @@
 
 
 
-{{#each post.comments as |comment| }}
+{{#each comment}}
 <div class="container"></div>
 <div class="card">
     <div class="card-header">
-        by {{comment.user_id}} on {{comment.created_on}}
+        by {{this.user.name}} on {{format_date this.created_on}}
     </div>
     <div class="card-body">
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
             <textarea class="form-control" id="NewPostContentInput"
-                rows="3">{{comment.comments_body}}</textarea>
+                rows="3">{{this.comments_body}}</textarea>
 
         </div>
     </div>

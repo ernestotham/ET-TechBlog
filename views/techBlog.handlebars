@@ -3,17 +3,17 @@
 <br><br>
 {{#each posts as |post| }}
 <div class="container" id="{{post.id}}"></div>
-<div class="card" id="{{post.id}}">
+<div class="card border border-success" id="{{post.id}}">
     <div class="card-header" id="{{post.id}}">
         Posted by {{post.user.name}} on: {{format_date post.updated_on }}
     </div>
-    <div class="card-body" id="{{post.id}}">
+    <div class="card-body border border-success" id="{{post.id}}">
         <div class="mb-3" id="{{post.id}}">
             <label for="exampleFormControlInput1" class="form-label" id="{{post.id}}">Title: {{post.post_title}}</label>
         </div>
         <div class="mb-3" id="{{post.id}}">
             <label for="exampleFormControlTextarea1" class="form-label" id="{{post.id}}">Content</label>
-            <textarea readonly class="form-control" id="{{post.id}}"
+            <textarea readonly class="form-control border border-success" id="{{post.id}}"
                 rows="3">{{post.post_body}}</textarea>
         </div>
 

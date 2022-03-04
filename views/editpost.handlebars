@@ -1,16 +1,16 @@
-<div class="container"></div>
-<div class="card">
+<div class="container">
+<div class="card border border-success">
   <div class="card-header" id="{{post.id}}">
     Edit Post
   </div>
-  <div class="card-body" id="{{post.id}}">
+  <div class="card-body border border-success" id="{{post.id}}">
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Title</label>
-      <input type="text" class="form-control" id="TitleInput" value="{{post.post_title}}" >
+      <input type="text" class="form-control border border-success" id="TitleInput" value="{{post.post_title}}" >
     </div>
     <div class="mb-3">
       <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-      <textarea class="form-control" id="PostTextareaInput" rows="3">{{post.post_body}}</textarea>
+      <textarea class="form-control border border-success" id="PostTextareaInput" rows="3">{{post.post_body}}</textarea>
     </div>
       <div class="d-grid gap-2">
         <button type="submit" class="btn btn-primary" id="UpdatePostBtn">Update Post</button>
