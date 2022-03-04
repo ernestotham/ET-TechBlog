@@ -1,34 +1,37 @@
-
 <div class="container" id="{{post.id}}"></div>
-<div class="card" id="{{post.id}}">
-    <div class="card-header" id="{{post.id}}">
-        Posted by {{post.user.name}} on: {{format_date post.updated_on }}
-    </div>
-    <div class="card-body" id="{{post.id}}">
-        <div class="mb-3" id="{{post.id}}">
-            <label for="exampleFormControlInput1" class="form-label" id="{{post.id}}">Title: {{post.post_title}}</label>
+    <div class="card border border-success" id="{{post.id}}">
+        <div class="card-header" id="{{post.id}}">
+            Posted by {{post.user.name}} on: {{format_date post.updated_on }}
         </div>
-        <div class="mb-3" id="{{post.id}}">
-            <label for="exampleFormControlTextarea1" class="form-label" id="{{post.id}}">Content</label>
-            <textarea readonly class="form-control" id="{{post.id}}"
-                rows="3">{{post.post_body}}</textarea>
+        <div class="card-body" id="{{post.id}}">
+            <div class="mb-3" id="{{post.id}}">
+                <label for="exampleFormControlInput1" class="form-label" id="{{post.id}}">Title: {{post.post_title}}</label>
+            </div>
+            <div class="mb-3" id="{{post.id}}">
+                <label for="exampleFormControlTextarea1" class="form-label" id="{{post.id}}">Content</label>
+                <textarea readonly class="form-control border border-success" id="{{post.id}}"
+                    rows="3">{{post.post_body}}</textarea>
+            </div>
+
         </div>
-
     </div>
-</div>
 
 
-<div class="container"></div>
-    <div class="card">
-  <div class="card-header">
-    
-  </div>
-  <div class="card-body">
-                     <div class="mb-3">
+    <div class="container">
+        <div class="card border border-success">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1 border border-success"
+                        rows="3"></textarea>
                 </div>
-    <a href="#" class="btn btn-primary">Submit</a>
-  </div>
-</div>
+                <a href="#" class="btn btn-primary">Submit</a>
+            </div>
+        </div>
+    </div>
+
+
 </div>

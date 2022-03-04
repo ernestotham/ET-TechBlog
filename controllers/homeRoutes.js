@@ -191,20 +191,6 @@ router.get('/editpost', (req, res) => {
 });
 
 
-router.get('/publicblog', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-   res.render('publicblog');
-});
-
-
-
-
-router.get('/publicblog2', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-   res.render('publicblog2');
-});
-
-
 router.get('/dashboard', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
