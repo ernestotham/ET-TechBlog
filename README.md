@@ -63,4 +63,15 @@ Github profile: @ernestotha
 For any questions reach out to me at ernestotha@gmail.com
 
 
+sample image:
+
+
+
+![techblogLogin](https://user-images.githubusercontent.com/23125242/157183278-5e9f1bd8-8bc0-4876-bcbe-c1c2581a84d2.jpg)
+
+![techblogHome](https://user-images.githubusercontent.com/23125242/157183282-c64d3bfd-e64f-44ec-add9-06206283aff7.jpg)
+
+
+live application URL:
+https://et-the-tech-blog.herokuapp.com/
 
